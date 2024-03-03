@@ -1,0 +1,82 @@
+ 
+.entree {
+    height: 100vh;
+    background-color: rgb(206, 204, 252);
+    display: flex;
+    flex-direction : column;
+    align-items: center;
+    justify-content: center;
+  }
+  .card {
+    width: 70%; /* Adjust the width of the card */
+  height: 90%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 600px;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+  }
+  
+  .top {
+    background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
+      url("../../assets/Abanner2.png")
+        center;
+    background-size: cover;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    gap: 30px;
+    height: 30%;
+    color: white;
+  }
+  .bottom {
+    flex: 1;
+    padding: 30px ;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    height: 70%;
+    border : 1px solid black
+  }
+  .entreprise{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 30%;
+
+  }
+  .dropdown {
+    flex-grow: 1; /* Allow the dropdown to grow and take up available space */
+}
+    
+.entreprise h2 {
+    margin-right: 10px; /* Add spacing between h2 and dropdown */
+  }
+ 
+.btn{
+    display: flex; /* Make the container a flex container */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+}
+
+  
+ tr :hover{
+    cursor: pointer;
+ }
+ .content{
+    justify-content: center;
+    padding : 20px 20px;
+ }
+    
+ @media (max-width: 768px) {
+    .card {
+      width: 90%;
+    }
+  
+    .entreprise {
+      padding-left: 10%;
+    }
+  }

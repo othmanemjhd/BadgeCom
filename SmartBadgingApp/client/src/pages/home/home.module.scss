@@ -1,0 +1,84 @@
+.home {
+    height: 100vh;
+    background-color: rgb(193, 190, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 50%;
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 600px;
+    overflow: hidden;
+  }
+  
+  .left {
+    flex: 1;
+    background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
+      url("https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600")
+        center;
+    background-size: cover;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: white;
+  }
+  
+  .right {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    justify-content: center;
+  }
+  
+  h1 {
+    font-size: 70px;
+    line-height: 100px;
+  }
+  
+  span {
+    font-size: 14px;
+  }
+  
+  button {
+    width: 50%;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+  }
+  
+  .entree {
+    background-color: #8499db;
+    color: white;
+  }
+  
+  .sortie {
+    background-color: #fc6161;
+    color: white;
+  }
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .card {
+      flex-direction: column;
+      width: 80%; /* Adjust as needed */
+      max-width: 500px; /* Adjust as needed */
+      margin: 0 auto; /* Center the card */
+    }
+  
+    .left,
+    .right {
+      flex: none;
+      width: 100%;
+    }
+  
+   
+  }
+  
