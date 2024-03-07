@@ -29,7 +29,7 @@ const Entree = () => {
 
   //fetch all companies
   const [companies, setCompanies] = useState<Company[]>([]);
-  const url = "http://localhost:8800/api";
+  const url = "https://badgecom.onrender.com/api";
   useEffect(() => {
     const fetchAllCompanies = async () => {
       try {

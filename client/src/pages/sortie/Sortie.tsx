@@ -23,7 +23,7 @@ const Sortie = () => {
   const [selectedCompany, setSelectedCompany] = useState<string>(
     "Choisissez votre entreprise"
   );
-  const url = "http://localhost:8800/api";
+  const url = "https://badgecom.onrender.com/api";
   //fetch all companies
   const [companies, setCompanies] = useState<Company[]>([]);
   useEffect(() => {

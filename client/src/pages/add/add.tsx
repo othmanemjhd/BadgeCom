@@ -10,7 +10,7 @@ interface Company {
 }
 
 const add = () => {
-  const url = "http://localhost:8800/api";
+  const url = "https://badgecom.onrender.com/api";
   const [newUser, setNewUser] = useState({
     first_name: "",
     last_name: "",
