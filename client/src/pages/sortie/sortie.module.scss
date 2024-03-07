@@ -16,6 +16,8 @@
     border-radius: 10px;
     min-height: 600px;
     font-family: "Poppins", sans-serif;
+    font-weight: 250;
+    font-style: normal;
     overflow: hidden;
   }
   
@@ -45,13 +47,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: 30%;
 
   }
   .dropdown {
     flex-grow: 1; /* Allow the dropdown to grow and take up available space */
 }
-    
+.toggle{
+  display: inline-block;
+  min-width: auto; /* Adjust min-width to suit your needs */
+  max-width: 100%;
+}
 .entreprise h2 {
     margin-right: 10px; /* Add spacing between h2 and dropdown */
   }
@@ -68,15 +73,21 @@
  }
  .content{
     justify-content: center;
-    padding : 20px 20px;
+    max-height: 300px;
  }
     
- @media (max-width: 768px) {
-    .card {
-      width: 90%;
-    }
-  
-    .entreprise {
-      padding-left: 10%;
-    }
+ @media only screen and (max-width: 768px) {
+  .card {
+    width: 90%;
   }
+
+  .entreprise {
+    width: 100%;
+  }
+  .toggle {
+    /* Adjust styles for smaller screens */
+    width: auto; /* Set width to auto to allow it to grow based on text size */
+    /* Add any other styles as needed */
+  }
+ 
+}

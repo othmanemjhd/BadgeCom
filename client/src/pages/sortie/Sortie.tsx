@@ -89,7 +89,11 @@ const Sortie = () => {
             <h2>Entreprise : </h2>
             <div className={SortieCSS.dropdown}>
               <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <Dropdown.Toggle
+                  className={SortieCSS.toggle}
+                  variant="success"
+                  id="dropdown-basic"
+                >
                   {selectedCompany}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>

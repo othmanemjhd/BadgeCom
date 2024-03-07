@@ -3,6 +3,10 @@ import EntreeCSS from "./Entree.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { Alert, Dropdown } from "react-bootstrap";
 import axios from "axios";
+<style>
+  @import
+  url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
+</style>;
 
 interface User {
   id_user: number;
@@ -102,7 +106,11 @@ const Entree = () => {
             <h2>Entreprise : </h2>
             <div className={EntreeCSS.dropdown}>
               <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <Dropdown.Toggle
+                  className={EntreeCSS.toggle}
+                  variant="success"
+                  id="dropdown-basic"
+                >
                   {selectedCompany}
                 </Dropdown.Toggle>
                 <Dropdown.Menu
@@ -127,13 +135,7 @@ const Entree = () => {
             </div>
           </div>
           <div className={EntreeCSS.content}>
-            <div
-              style={{
-                maxHeight: "400px",
-                overflowY: "auto",
-                overflowX: "auto",
-              }}
-            >
+            <div className={EntreeCSS.tableContainer}>
               <table
                 className="table table-striped table-hover"
                 style={{ width: "100%" }}
@@ -195,7 +197,7 @@ const Entree = () => {
               </Alert>
             )}
           </div>
-          <div className={EntreeCSS.btn}>
+          <div className={EntreeCSS.addBtn}>
             <Link to="/add" className="btn btn-primary">
               Ajouter nouveau employé
             </Link>

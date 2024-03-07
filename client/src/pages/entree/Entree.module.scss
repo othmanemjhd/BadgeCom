@@ -13,7 +13,10 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 15px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 250;
+    font-style: normal;
     min-height: 600px;
     overflow: hidden;
   }
@@ -36,30 +39,32 @@
     display: flex;
     flex-direction: column;
     gap: 80px;
-    border : 1px solid black
   }
   .entreprise{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: 30%;
 
   }
   .dropdown {
     flex-grow: 1; /* Allow the dropdown to grow and take up available space */
 }
-    
+.toggle{
+  display: inline-block;
+  min-width: auto; /* Adjust min-width to suit your needs */
+  max-width: 100%;
+}
 .entreprise h2 {
     margin-right: 10px; /* Add spacing between h2 and dropdown */
   }
  
-.btn{
+.addBtn{
     display: flex; /* Make the container a flex container */
     justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
     gap: 10px;
 }
-.btn button{
+.addBtn button{
   width: 20%;
   color: white;
 }
@@ -70,15 +75,28 @@
  }
  .content{
     justify-content: center;
-    padding : 20px 20px;
+    overflow-y: auto;/* Enable vertical scrolling */
+    overflow-x: auto; 
+    min-height: 200px;
  }
+ .tableContainer {
+  max-height: 300px; /* Set max-height for the table container */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: auto;
+}
     
- @media (max-width: 768px) {
+ @media only screen and (max-width: 768px) {
     .card {
       width: 90%;
     }
   
     .entreprise {
-      padding-left: 10%;
+      width: 100%;
     }
+    .toggle {
+      /* Adjust styles for smaller screens */
+      width: auto; /* Set width to auto to allow it to grow based on text size */
+      /* Add any other styles as needed */
+    }
+   
   }
