@@ -113,7 +113,7 @@ const Sortie = () => {
                       variant="success"
                       id="dropdown-basic"
                     >
-                      choisissez votre entreprise :
+                      choisissez votre entreprise
                     </Dropdown.Toggle>
                   </div>
                 )}
