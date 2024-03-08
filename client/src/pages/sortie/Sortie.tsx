@@ -63,6 +63,7 @@ const Sortie = () => {
       });
       console.log(res.data);
       setSuccessMessage("Votre date de sortie a été bien ajoutée !");
+      navigate("/sortie");
     } catch (err) {
       console.log(err);
     }
