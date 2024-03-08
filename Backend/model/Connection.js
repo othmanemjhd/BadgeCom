@@ -12,7 +12,7 @@ export const db = mysql.createConnection({
 // Connect to MySQL
 db.connect(err => {
     if (err) {
-        console.error('Error connecting to MySQL: ' + err.stack);
+        console.log('Error connecting to MySQL: ' + err.stack);
         return;
     }
     console.log('Connected to MySQL as id ' + db.threadId);

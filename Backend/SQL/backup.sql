@@ -79,14 +79,14 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `idUser` int NOT NULL AUTO_INCREMENT,
+  `id_user` int NOT NULL AUTO_INCREMENT,
   `first_name` varchar(45) NOT NULL,
   `last_name` varchar(45) NOT NULL,
   `id_company` int NOT NULL,
-  PRIMARY KEY (`idUser`),
-  UNIQUE KEY `idUser_UNIQUE` (`idUser`),
+  PRIMARY KEY (`id_user`),
+  UNIQUE KEY `id_user_UNIQUE` (`id_user`),
   KEY `company_name_idx` (`id_company`),
-  CONSTRAINT `id_company` FOREIGN KEY (`id_company`) REFERENCES `companies` (`idcompany`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `id_company` FOREIGN KEY (`id_company`) REFERENCES `companies` (`id_company`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
