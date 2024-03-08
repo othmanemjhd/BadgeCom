@@ -104,13 +104,12 @@ const Sortie = () => {
                   </Dropdown.Toggle>
                 ) : (
                   <div>
-                    choisissez votre entreprise :
                     <Dropdown.Toggle
                       className={SortieCSS.toggle}
                       variant="success"
                       id="dropdown-basic"
                     >
-                      Sélectionnez une entreprise
+                      choisissez votre entreprise :
                     </Dropdown.Toggle>
                   </div>
                 )}
