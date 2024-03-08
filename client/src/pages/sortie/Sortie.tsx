@@ -65,7 +65,7 @@ const Sortie = () => {
         setSuccessMessage("Votre date de sortie a été bien ajoutée !");
         setTimeout(() => {
           setSuccessMessage("");
-        }, 1000);
+        }, 2000);
 
         //await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for 1 second (adjust as needed)
         if (selectedCompany) {
