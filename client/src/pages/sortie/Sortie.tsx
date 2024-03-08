@@ -53,27 +53,32 @@ const Sortie = () => {
       console.log(error);
     }
   };
-  const handleRowClick = async (id: number) => {
-    console.log("user id clicked is : " + id);
-    try {
-      const res = await axios.post(url + "/users/out/add", {
-        id: id,
-      });
-      console.log(res.data);
-      setSuccessMessage("Votre date de sortie a été bien ajoutée !");
-      setTimeout(() => {
-        setSuccessMessage("");
-      }, 1000);
+  const handleRowClick = async (user: User) => {
+    const confirmMessage = `Confirmez-vous votre sortie Mr : "${user.last_name}" "${user.first_name}" ?`;
+    const isConfirmed = window.confirm(confirmMessage);
+    if (isConfirmed) {
+      try {
+        const res = await axios.post(url + "/users/out/add", {
+          id: user.id_user,
+        });
+        console.log(res.data);
+        setSuccessMessage("Votre date de sortie a été bien ajoutée !");
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 1000);
 
-      //await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for 1 second (adjust as needed)
-      if (selectedCompany) {
-        handleCompanyFilter(selectedCompany);
-      } else {
-        console.log("selectedCompany is empty");
-        // Handle the case when selectedCompany is empty
+        //await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for 1 second (adjust as needed)
+        if (selectedCompany) {
+          handleCompanyFilter(selectedCompany);
+        } else {
+          console.log("selectedCompany is empty");
+          // Handle the case when selectedCompany is empty
+        }
+      } catch (err) {
+        console.log(err);
       }
-    } catch (err) {
-      console.log(err);
+    } else {
+      console.log("Annulé");
     }
   };
 
@@ -155,10 +160,7 @@ const Sortie = () => {
                 </thead>
                 <tbody>
                   {users.map((user) => (
-                    <tr
-                      key={user.id_user}
-                      onClick={() => handleRowClick(user.id_user)}
-                    >
+                    <tr key={user.id_user} onClick={() => handleRowClick(user)}>
                       <th scope="row">{user.id_user}</th>
                       <td>{user.first_name}</td>
                       <td>{user.last_name}</td>
