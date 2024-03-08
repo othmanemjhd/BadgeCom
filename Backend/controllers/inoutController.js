@@ -18,34 +18,6 @@ function dataExistsForToday(userId) {
 }
 
 
-// // Middleware to check if data exists for today before calling addInUser
-// async function checkDataExists(req, res, next) {
-//     const userId = req.body.id_user; // Assuming id_user is sent in the request body
-//     try {
-//         const exists = await dataExistsForToday(userId);
-//         if (exists) {
-//             res.status(400).json({ error: 'Data already exists for today' });
-//         } else {
-//             next();
-//         }
-//     } catch (error) {
-//         console.error('Error checking data: ' + error);
-//         res.status(500).json({ error: 'Internal server error' });
-//     }
-// }
-
-// function addInUserData(userId) {
-//     const today = new Date().toISOString().split('T')[0];
-//     const query = `INSERT INTO inout (id_user, indate) VALUES (?, ?)`;
-//     connection.query(query, [userId, today], (err, results) => {
-//         if (err) {
-//             console.error('Error inserting data: ' + err);
-//         } else {
-//             console.log('Data added for today');
-//         }
-//     });
-// }
-
 // Function to insert data into inout table
 export async function  addInUser (req,res) {
     try {
@@ -57,15 +29,14 @@ export async function  addInUser (req,res) {
         // If data doesn't exist for today for the specific user, insert new data
         if (!exists) {
             const today = new Date() ;
-            console.log("IN DATE OF TODAY :"+today)
             const query = "INSERT INTO inouts (id_user, date_entree) VALUES (?, ?)";
             db.query(query, [userId, today], (err, results) => {
                 if (err) {
                     console.error('Error inserting data:', err);
                     res.json('Internal server error');
                 } else {
-                    console.log('Data added for today');
-                    res.json('Data added successfully');
+                    console.log('IN Data added successfully for today');
+                    res.json('IN Data added successfully');
                 }
             });
         } else {
@@ -89,6 +60,7 @@ export const addOutUser = (req,res) =>{
     const q  = "UPDATE inouts SET  `date_sortie` = ? WHERE id_user = ? AND DATE(`date_entree`) = CURDATE() "
     db.query(q , values,(err,data)=>{
             if(err) return res.json(err)
+            console.log('OUT Date added successfully for today of userid : '+id);
             return res.json(data+"OUT date of userid : "+id+" has been added")
     })
 }
