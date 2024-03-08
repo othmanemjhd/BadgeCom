@@ -60,8 +60,9 @@ const Sortie = () => {
         id: id,
       });
       console.log(res.data);
+      setSuccessMessage("Votre date de sortie a été bien ajoutée !");
       setTimeout(() => {
-        setSuccessMessage("Votre date de sortie a été bien ajoutée !");
+        setSuccessMessage("");
       }, 1000);
 
       //await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for 1 second (adjust as needed)

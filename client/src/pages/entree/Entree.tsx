@@ -69,14 +69,16 @@ const Entree = () => {
           id: user.id_user,
         });
         if (res.data.includes("already")) {
+          setErrorMessage(
+            `USER : ${user.first_name} ${user.last_name} WITH ID ${user.id_user} : est déja entré(e) !`
+          );
           setTimeout(() => {
-            setErrorMessage(
-              `USER : ${user.first_name} ${user.last_name} WITH ID ${user.id_user} : est déja entré(e) !`
-            );
+            setErrorMessage("");
           }, 1000);
         } else {
+          setSuccessMessage("Votre date d'entrée a été bien ajoutée !");
           setTimeout(() => {
-            setSuccessMessage("Votre date d'entrée a été bien ajoutée !");
+            setSuccessMessage("");
           }, 1000);
         }
       } catch (err) {
