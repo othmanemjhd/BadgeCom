@@ -4,7 +4,7 @@ import { db } from "../model/Connection.js";
 export const getAllPresentUsersByCompany = (req,res) => {
         const id_company = req.params.id_company;
         console.log(id_company)
-       const q = "SELECT * FROM USERS u ,COMPANIES c , INOUTS i WHERE u.id_user = i.id_user AND u.id_company = c.id_company AND u.id_user = i.id_user AND i.date_entree IS NOT NULL AND id_company = ?"
+       const q = "SELECT * FROM users u ,COMPANIES c , INOUTS i WHERE u.id_user = i.id_user AND u.id_company = c.id_company AND u.id_user = i.id_user AND i.date_entree IS NOT NULL AND id_company = ?"
        db.query(q,id_company,(err,data)=>{
         if(err) res.json(err)
         return res.json(data)
@@ -13,7 +13,7 @@ export const getAllPresentUsersByCompany = (req,res) => {
 export const getAllPresentTodayUsersByCompany = (req,res) =>{
         const id_company = req.params.id_company;
         console.log(id_company)
-       const q = "SELECT * FROM USERS u , COMPANIES c ,  INOUTS i WHERE u.id_user = i.id_user AND u.id_company = c.id_company AND u.id_user = i.id_user AND  date_entree IS NOT NULL AND date_sortie IS NULL AND DATE(date_entree) = CURDATE() AND u.id_company = ?"
+       const q = "SELECT * FROM users u , COMPANIES c ,  INOUTS i WHERE u.id_user = i.id_user AND u.id_company = c.id_company AND u.id_user = i.id_user AND  date_entree IS NOT NULL AND date_sortie IS NULL AND DATE(date_entree) = CURDATE() AND u.id_company = ?"
        db.query(q,id_company,(err,data)=>{
         if(err) res.json(err)
         return res.json(data)
@@ -57,7 +57,7 @@ export const getAllUsers = (req ,res) => {
 
 export const getUserById = (req ,res) => {
         const id_user = req.params.iduser;
-        const query = "SELECT * FROM USERS WHERE id_user = ? "
+        const query = "SELECT * FROM users WHERE id_user = ? "
         db.query(query,iduser,(err,data)=>{
               if(err) return res.json(err)
               return res.json(data)       
@@ -66,7 +66,7 @@ export const getUserById = (req ,res) => {
 }
 export const updateUser = (req,res) => {
         const iduser = req.params.iduser;
-        const query = "UPDATE USERS SET `first_name` = ? , `last_name` = ?  WHERE id_user = ? "
+        const query = "UPDATE users SET `first_name` = ? , `last_name` = ?  WHERE id_user = ? "
         const values = [
                req.body.firstName,
                req.body.lastName,
@@ -79,7 +79,7 @@ export const updateUser = (req,res) => {
 
 export const deleteUser = (req,res) => {
         const iduser = req.params.iduser;
-        const query = "DELETE FROM USERS  WHERE id_user = ? "
+        const query = "DELETE FROM users  WHERE id_user = ? "
       
         db.query(query,iduser,(err,data) => {
                 if(err) return res.json(err)

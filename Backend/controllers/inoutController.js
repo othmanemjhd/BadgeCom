@@ -5,7 +5,7 @@ import db from "../model/Connection.js";
 // Function to check if data exists for today for a specific user
 function dataExistsForToday(userId) {
     const today = new Date().toISOString().split('T')[0];
-    const query = "SELECT * FROM INOUTS WHERE id_user = ? AND DATE(date_entree) = ? ";
+    const query = "SELECT * FROM inouts WHERE id_user = ? AND DATE(date_entree) = ? ";
     return new Promise((resolve, reject) => {
         db.query(query, [userId, today], (err, results) => {
             if (err) {
@@ -58,7 +58,7 @@ export async function  addInUser (req,res) {
         if (!exists) {
             const today = new Date() ;
             console.log("IN DATE OF TODAY :"+today)
-            const query = "INSERT INTO INOUTS (id_user, date_entree) VALUES (?, ?)";
+            const query = "INSERT INTO inouts (id_user, date_entree) VALUES (?, ?)";
             db.query(query, [userId, today], (err, results) => {
                 if (err) {
                     console.error('Error inserting data:', err);
@@ -86,7 +86,7 @@ export const addOutUser = (req,res) =>{
             id,
             
      ]
-    const q  = "UPDATE INOUTS SET  `date_sortie` = ? WHERE id_user = ? AND DATE(`date_entree`) = CURDATE() "
+    const q  = "UPDATE inouts SET  `date_sortie` = ? WHERE id_user = ? AND DATE(`date_entree`) = CURDATE() "
     db.query(q , values,(err,data)=>{
             if(err) return res.json(err)
             return res.json(data+"OUT date of userid : "+id+" has been added")
