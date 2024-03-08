@@ -74,12 +74,12 @@ const Entree = () => {
           );
           setTimeout(() => {
             setErrorMessage("");
-          }, 2000);
+          }, 5000);
         } else {
           setSuccessMessage("Votre date d'entrée a été bien ajoutée !");
           setTimeout(() => {
             setSuccessMessage("");
-          }, 2000);
+          }, 5000);
         }
       } catch (err) {
         console.log(err);
