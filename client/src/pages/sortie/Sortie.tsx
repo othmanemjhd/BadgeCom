@@ -20,9 +20,7 @@ interface Company {
 const Sortie = () => {
   const navigate = useNavigate();
   const [successMessage, setSuccessMessage] = useState("");
-  const [selectedCompany, setSelectedCompany] = useState<string>(
-    "Choisissez votre entreprise"
-  );
+  const [selectedCompany, setSelectedCompany] = useState<Company>();
   const url = "https://badgecom.onrender.com/api";
   //fetch all companies
   const [companies, setCompanies] = useState<Company[]>([]);
@@ -42,7 +40,7 @@ const Sortie = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   const handleCompanyFilter = async (company: Company) => {
-    setSelectedCompany(company.company_name);
+    setSelectedCompany(company);
     console.log(company.company_name);
     try {
       const res = await axios.get(
@@ -63,7 +61,13 @@ const Sortie = () => {
       });
       console.log(res.data);
       setSuccessMessage("Votre date de sortie a été bien ajoutée !");
-      navigate("/sortie");
+      await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for 1 second (adjust as needed)
+      if (selectedCompany) {
+        handleCompanyFilter(selectedCompany);
+      } else {
+        console.log("selectedCompany is empty");
+        // Handle the case when selectedCompany is empty
+      }
     } catch (err) {
       console.log(err);
     }
@@ -90,13 +94,26 @@ const Sortie = () => {
             <h2>Entreprise : </h2>
             <div className={SortieCSS.dropdown}>
               <Dropdown>
-                <Dropdown.Toggle
-                  className={SortieCSS.toggle}
-                  variant="success"
-                  id="dropdown-basic"
-                >
-                  {selectedCompany}
-                </Dropdown.Toggle>
+                {selectedCompany ? (
+                  <Dropdown.Toggle
+                    className={SortieCSS.toggle}
+                    variant="success"
+                    id="dropdown-basic"
+                  >
+                    {selectedCompany.company_name}
+                  </Dropdown.Toggle>
+                ) : (
+                  <div>
+                    choisissez votre entreprise :
+                    <Dropdown.Toggle
+                      className={SortieCSS.toggle}
+                      variant="success"
+                      id="dropdown-basic"
+                    >
+                      Sélectionnez une entreprise
+                    </Dropdown.Toggle>
+                  </div>
+                )}
                 <Dropdown.Menu>
                   {companies.map((company) => (
                     <Dropdown.Item
