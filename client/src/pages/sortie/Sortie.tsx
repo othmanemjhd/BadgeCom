@@ -61,7 +61,7 @@ const Sortie = () => {
       });
       console.log(res.data);
       setSuccessMessage("Votre date de sortie a été bien ajoutée !");
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for 1 second (adjust as needed)
+      //await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for 1 second (adjust as needed)
       if (selectedCompany) {
         handleCompanyFilter(selectedCompany);
       } else {
