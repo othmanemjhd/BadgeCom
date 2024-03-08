@@ -4,7 +4,7 @@ import { db } from "../model/Connection.js";
 export const getAllPresentUsersByCompany = (req,res) => {
         const id_company = req.params.id_company;
         console.log(id_company)
-       const q = "SELECT * FROM users u ,COMPANIES c , INOUTS i WHERE u.id_user = i.id_user AND u.id_company = c.id_company AND u.id_user = i.id_user AND i.date_entree IS NOT NULL AND id_company = ?"
+       const q = "SELECT * FROM users u ,companies c , inouts i WHERE u.id_user = i.id_user AND u.id_company = c.id_company AND u.id_user = i.id_user AND i.date_entree IS NOT NULL AND id_company = ?"
        db.query(q,id_company,(err,data)=>{
         if(err) res.json(err)
         return res.json(data)
@@ -13,7 +13,7 @@ export const getAllPresentUsersByCompany = (req,res) => {
 export const getAllPresentTodayUsersByCompany = (req,res) =>{
         const id_company = req.params.id_company;
         console.log(id_company)
-       const q = "SELECT * FROM users u , COMPANIES c ,  INOUTS i WHERE u.id_user = i.id_user AND u.id_company = c.id_company AND u.id_user = i.id_user AND  date_entree IS NOT NULL AND date_sortie IS NULL AND DATE(date_entree) = CURDATE() AND u.id_company = ?"
+       const q = "SELECT * FROM users u , companies c ,  inouts i WHERE u.id_user = i.id_user AND u.id_company = c.id_company AND u.id_user = i.id_user AND  date_entree IS NOT NULL AND date_sortie IS NULL AND DATE(date_entree) = CURDATE() AND u.id_company = ?"
        db.query(q,id_company,(err,data)=>{
         if(err) res.json(err)
         return res.json(data)
