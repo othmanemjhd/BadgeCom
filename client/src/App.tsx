@@ -6,7 +6,7 @@ import Entree from "./pages/entree/Entree";
 import Sortie from "./pages/sortie/Sortie";
 import Add from "./pages/add/add";
 const App = () => {
-  const url = "https://badgecom.netlify.app";
+  const url = "";
   return (
     <div>
       <BrowserRouter>
