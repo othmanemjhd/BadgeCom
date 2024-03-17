@@ -23,10 +23,15 @@ export const getAllPresentTodayUsersByCompany = (req,res) =>{
 
 
 export const addUser = (req ,res) => {
-       // const query = "INSERT INTO USERS (`first_name`,`last_name`,`id_company`) VALUES (?)"
-       console.log(req.body)
-       const { first_name, last_name, company_name } = req.body;
-        db.query('CALL AddNewUserWithCompany(?,?,?)',[first_name, last_name, company_name],(err,data)=>{
+       const query0 = "INSERT INTO USERS (`first_name`,`last_name`,`id_company`) VALUES (?)"
+       const procedure = "CALL AddNewUserWithCompany(?,?,?)"
+       const values = [
+        req.body.firstName,
+        req.body.lastName,
+        req.body.id_company
+ ]
+       const { first_name, last_name, id_company } = req.body;
+        db.query(query0,[values],(err,data)=>{
               if(err) return res.json(err)
               return res.json("User has been created successfully")       
         })

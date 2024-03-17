@@ -10,15 +10,17 @@ interface Company {
 }
 
 const add = () => {
-  const url = "https://badgecom.onrender.com/api";
+  const url = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   const [newUser, setNewUser] = useState({
     first_name: "",
     last_name: "",
+    id_company: 0,
     company_name: "",
   });
   const handleItemClick = (company: Company) => {
     const company_name = company.company_name;
     newUser.company_name = company_name;
+    newUser.id_company = company.id_company;
     setSelectedCompany(company_name);
   };
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -47,7 +49,7 @@ const add = () => {
   useEffect(() => {
     const fetchAllCompanies = async () => {
       try {
-        const res = await axios.get(url + "/companies");
+        const res = await axios.get(url + "/companies/all");
         setCompanies(res.data);
         console.log(res.data);
       } catch (error) {

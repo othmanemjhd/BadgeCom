@@ -29,17 +29,19 @@ const Entree = () => {
 
   //fetch all companies
   const [companies, setCompanies] = useState<Company[]>([]);
-  const url = "https://badgecom.onrender.com/api";
+  // const url = "https://badgecom.onrender.com/api";
+  const url = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   useEffect(() => {
     const fetchAllCompanies = async () => {
       try {
-        const res = await axios.get(url + "/companies");
+        const res = await axios.get(url + "/companies/all");
         setCompanies(res.data);
         console.log(res.data);
       } catch (error) {
         console.log(error);
       }
     };
+
     fetchAllCompanies();
   }, []);
 

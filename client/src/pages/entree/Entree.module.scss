@@ -38,9 +38,8 @@
     padding: 30px ;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 80px;
+    gap: 50px;
+    height: 70%;
   }
   .entreprise{
     display: flex;
@@ -92,9 +91,7 @@
       width: 90%;
     }
   
-    .entreprise {
-      width: 100%;
-    }
+    
     .toggle {
       /* Adjust styles for smaller screens */
       width: auto; /* Set width to auto to allow it to grow based on text size */
